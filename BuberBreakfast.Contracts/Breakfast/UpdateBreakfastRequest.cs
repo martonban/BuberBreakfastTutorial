@@ -1,6 +1,6 @@
 namespace Breakfast.Contracts.Breakfast;
 
-public record UpsertBreakfastRequest(
+public record UpdateBreakfastRequest(
     string Name,
     string Description,
     DateTime StartDateTime,
