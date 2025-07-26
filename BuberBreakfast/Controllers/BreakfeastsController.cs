@@ -70,12 +70,26 @@ public class BreakfastsController : ControllerBase
     [HttpPut("{id:guid}")]
     public IActionResult UpdateBreakfast(Guid id, UpdateBreakfastRequest request)
     {
-        return Ok(request);
+        var breakfast = new Breakfast(
+            id,
+            request.Name, 
+            request.Description,
+            request.StartDateTime,
+            request.EndDateTime,
+            DateTime.UtcNow,
+            request.Savory,
+            request.Sweet);
+
+        _breakfastService.UpdateBreakfast(breakfast);
+
+        //TODO: Return 201 if a new Breakfast was created
+        return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult DeletetBreakfast(Guid id)
     {
-        return Ok(id);
+        _breakfastService.DeleteBreakfast(id);
+        return NoContent();
     }
 }
