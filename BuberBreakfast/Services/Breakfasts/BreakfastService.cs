@@ -16,9 +16,9 @@ public class BreakfastService : IBreakfastService
     }
     public void UpdateBreakfast(Breakfast breakfast)
     {
-        _breakfasts[breakfast.id] = breakfast;
+        _breakfasts[breakfast.Id] = breakfast;
     }
-    void DeleteBreakfast(Guid id)
+    public void DeleteBreakfast(Guid id)
     {
         _breakfasts.Remove(id);
     }
